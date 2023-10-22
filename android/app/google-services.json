@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691181667057",
+    "project_id": "fcmflutter-2fa7d",
+    "storage_bucket": "fcmflutter-2fa7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691181667057:android:cdfaeae00f376daea29f50",
+        "android_client_info": {
+          "package_name": "com.example.fluttercloudmessageing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8UnG1z03rneVGc2kINRGVmqFAyLBmrbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
