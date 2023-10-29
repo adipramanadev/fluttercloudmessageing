@@ -1,24 +1,31 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class NotificationPage extends StatelessWidget {
-  final RemoteMessage message;
-
-  NotificationPage({required this.message, Key? key}) : super(key: key);
+class Message extends StatefulWidget {
+  const Message({super.key});
 
   @override
+  State<Message> createState() => _MessageState();
+}
+
+class _MessageState extends State<Message> {
+  Map payload = {};
+  @override
   Widget build(BuildContext context) {
+    final data = ModalRoute.of(context)!.settings.arguments;
+    if (data is RemoteMessage) {
+      payload = data.data;
+    }
+    if (data is NotificationResponse) {
+      payload = jsonDecode(data.payload!);
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notification Page'),
-      ),
-      body: Column(
-        children: [
-          Text(message.notification!.title!),
-          Text(message.notification!.body!),
-          Text(message.data.toString()),
-        ],
-      ),
+      appBar: AppBar(title: Text("Your Message")),
+      body: Center(child: Text(payload.toString())),
     );
   }
 }
